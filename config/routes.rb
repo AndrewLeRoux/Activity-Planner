@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :user_preferences
   resources :favorites
   resources :activities
   resources :preferences
