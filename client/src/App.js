@@ -13,41 +13,50 @@ import Home from "./components/Home"
 function App() {
 
   const [activities, setActivities] = useState([])
-  const [users, setUsers] = useState([])
+  const [user, setUser] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [preferences, setPreferences] = useState([])
 
   const [currentUser, setCurrentUser] = useState(null)
   
-  useEffect(() =>{
-    fetch("/activities")
-    .then((r) => r.json())
-    .then((activities) => setActivities(activities));
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
-    fetch("/users")
-    .then((r) => r.json())
-    .then((users) => setUsers(users));
+  useEffect(() => {
+    async function getActivities() {
+      const r = await fetch("/activities")
+      if (r.ok) {
+        r.json().then((activities) => setActivities(activities))
+      }
+    }
 
-    fetch("/favorites")
-    .then((r) => r.json())
-    .then((favorites) => setFavorites(favorites));
-  }, [])
+    async function getFavorites() {
+      const r = await fetch("/favorites")
+      if (r.ok) {
+        r.json().then((favs) => setFavorites(favs))
+      }
+    }
 
+    async function getPreferences() {
+      const r = await fetch("/preferences")
+      if (r.ok) {
+        r.json().then((preferences) => setPreferences(preferences))
+      }
+    }
 
-  function handleAddUser(newUser){
-    const updatedUsers = [...users, newUser]
-    setUsers(updatedUsers)
+    getActivities();
+    getFavorites();
+    getPreferences();
+    
 
-    setCurrentUser(newUser)
-  }
+  }, [user])
 
-  function handleLogin(userName){
-    const current = users.find(user => user.name == userName)
-    setCurrentUser(current)
-  }
-
-  function handleLogout(){
-    setCurrentUser(null)
-  }
 
   function handleAddFavorite(newFavorite){
     
@@ -60,21 +69,22 @@ function App() {
     setFavorites(newFavorites)
   }
   
+  if (!user) return <Login onLogin={setUser}/>
   return (
     <div className = "app">
-      { currentUser? <NavBar handleClick={handleLogout}/> : null}
+      <NavBar setUser={setUser}/>
       <Switch>
         <Route exact path="/profile">
-        <Profile activities = {activities} user = {currentUser} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
+        <Profile activities = {activities} user = {user} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
         </Route>
         <Route exact path="/favorites">
-        {currentUser? <Favorites user = {currentUser} favorites ={favorites} onDelete={handleDelete}/> : null}
+        <Favorites user = {user} favorites ={favorites} onDelete={handleDelete}/>
         </Route>
         <Route exact path="/activities">
-          <Activities activities = {activities} user = {currentUser} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
+          <Activities activities = {activities} user = {user} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
         </Route>
         <Route exact path="/">
-        {currentUser? <Home user = {currentUser} activities = {activities}/> : <Login users = {users} onLogin = {handleLogin} onAddUser = {handleAddUser}/>}
+        <Home user = {user} activities = {activities}/>
         </Route>
       </Switch>
     </div>
