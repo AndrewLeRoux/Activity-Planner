@@ -1,23 +1,20 @@
 import React, {useState, useEffect} from "react";
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-
 import Activities from "./components/Activities";
 import Favorites from "./components/Favorites";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
-import Login from "./components/Login";
+import Login from "./components/login/Login";
 import Home from "./components/Home"
 
 
 function App() {
 
   const [activities, setActivities] = useState([])
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null)
   const [favorites, setFavorites] = useState([])
   const [preferences, setPreferences] = useState([])
-
-  const [currentUser, setCurrentUser] = useState(null)
   
   useEffect(() => {
     // auto-login
@@ -84,7 +81,7 @@ function App() {
           <Activities activities = {activities} user = {user} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
         </Route>
         <Route exact path="/">
-        <Home user = {user} activities = {activities}/>
+        <Home/>
         </Route>
       </Switch>
     </div>
