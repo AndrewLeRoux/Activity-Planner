@@ -11,15 +11,15 @@ function Favorite({favorite, onDelete}){
     }
 
 
-    const education = favorite.activity.activity_type == "education"
-    const recreational = favorite.activity.activity_type == "recreational"
-    const social = favorite.activity.activity_type == "social"
-    const diy = favorite.activity.activity_type == "diy"
-    const charity = favorite.activity.activity_type == "charity"
-    const cooking = favorite.activity.activity_type == "cooking"
-    const relaxation = favorite.activity.activity_type == "relaxation"
-    const music = favorite.activity.activity_type == "music"
-    const busywork = favorite.activity.activity_type == "busywork"
+    const education = favorite.activity.activity_type === "education"
+    const recreational = favorite.activity.activity_type === "recreational"
+    const social = favorite.activity.activity_type === "social"
+    const diy = favorite.activity.activity_type === "diy"
+    const charity = favorite.activity.activity_type === "charity"
+    const cooking = favorite.activity.activity_type === "cooking"
+    const relaxation = favorite.activity.activity_type === "relaxation"
+    const music = favorite.activity.activity_type === "music"
+    const busywork = favorite.activity.activity_type === "busywork"
 
     return(
         <div className="cardContainer">

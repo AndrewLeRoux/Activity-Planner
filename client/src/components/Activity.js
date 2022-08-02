@@ -4,7 +4,7 @@ function Activity({activity, user, onAddFavorite, favorites}){
 
 
     function handleClick(){
-        if (favorites.find(favorite => favorite.activity_id == activity.id && favorite.user_id == user.id)) {
+        if (favorites.find(favorite => favorite.activity_id === activity.id && favorite.user_id === user.id)) {
             alert("already in favorites")
          }
         else {
@@ -24,15 +24,15 @@ function Activity({activity, user, onAddFavorite, favorites}){
         
     }
 
-    const education = activity.activity_type == "education"
-    const recreational = activity.activity_type == "recreational"
-    const social = activity.activity_type == "social"
-    const diy = activity.activity_type == "diy"
-    const charity = activity.activity_type == "charity"
-    const cooking = activity.activity_type == "cooking"
-    const relaxation = activity.activity_type == "relaxation"
-    const music = activity.activity_type == "music"
-    const busywork = activity.activity_type == "busywork"
+    const education = activity.activity_type === "education"
+    const recreational = activity.activity_type === "recreational"
+    const social = activity.activity_type === "social"
+    const diy = activity.activity_type === "diy"
+    const charity = activity.activity_type === "charity"
+    const cooking = activity.activity_type === "cooking"
+    const relaxation = activity.activity_type === "relaxation"
+    const music = activity.activity_type === "music"
+    const busywork = activity.activity_type === "busywork"
     
 
     return(

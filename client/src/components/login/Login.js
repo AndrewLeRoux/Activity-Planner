@@ -15,7 +15,7 @@ function Login({onLogin}){
             <>
                 <LoginForm onLogin = {onLogin} />
                 <p>Need to create an account?</p>
-                <button onClick = { () => setShowLogin(false)}> Signup</button>
+                <Button onClick = { () => setShowLogin(false)}> Signup</Button>
             </>
         ) : (
             <>
@@ -31,7 +31,7 @@ function Login({onLogin}){
 
 const Button = styled.button`
 cursor: pointer;
-background-color: orange;
+background-color: #61dafb;
 border-radius: 20px;
 padding: 8px 16px;
 margin: 2px;

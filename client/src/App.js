@@ -62,7 +62,7 @@ function App() {
   }
 
   function handleDelete(deletedFavorite){
-    const newFavorites = favorites.filter(favorite => !(favorite.activity_id == deletedFavorite.activity_id && favorite.user_id == deletedFavorite.user_id))
+    const newFavorites = favorites.filter(favorite => !(favorite.activity_id === deletedFavorite.activity_id && favorite.user_id === deletedFavorite.user_id))
     setFavorites(newFavorites)
   }
   

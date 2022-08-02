@@ -42,7 +42,7 @@ function NewUserForm({onLogin}){
 
 
     return(
-        <div className = "form-container">
+        <Tile>
         <h2 className = "titles">Create new User</h2>
         <form onSubmit={handleSubmit}>
         <Input
@@ -88,7 +88,7 @@ function NewUserForm({onLogin}){
         <Button type="submit">Create Account</Button>
         </form>
         {errors.map(error => {return <Error key = {error}>{error}</Error>})}
-    </div>
+        </Tile>
     )
 }
 
@@ -105,7 +105,7 @@ const Input = styled.input`
 
 const Button = styled.button`
   cursor: pointer;
-  background-color: orange;
+  background-color: #61dafb;
   border-radius: 20px;
   padding: 8px 16px;
   margin: 2px;

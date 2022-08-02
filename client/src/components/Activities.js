@@ -5,7 +5,7 @@ function Activites({activities, user, onAddFavorite, favorites}){
 
     const [type, setType] = useState(null)
 
-    const filteredList = activities.filter(activity => activity.activity_type == type)
+    const filteredList = activities.filter(activity => activity.activity_type === type)
     const activityList = activities.map((activity) =>{ return <Activity user = {user} key = {activity.name} activity = {activity} favorites ={favorites} onAddFavorite={onAddFavorite}/>})
     const filteredActivityList = filteredList.map((activity) =>{ return <Activity user = {user} key = {activity.name} activity = {activity} favorites ={favorites} onAddFavorite={onAddFavorite}/>})
 
