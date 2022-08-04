@@ -74,6 +74,14 @@ function App() {
     }
     getFavorites();
   }
+
+  function handlePreferenceUpdate(){
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }
   
   if (!user) return <Login onLogin={setUser}/>
   return (
@@ -81,7 +89,7 @@ function App() {
       <NavBar setUser={setUser}/>
       <Switch>
         <Route exact path="/profile">
-        <Profile activities = {activities} user = {user} favorites ={favorites} onAddFavorite={handleAddFavorite}/>
+        <Profile activities = {activities} user = {user} favorites ={favorites} preferences = {preferences} onPreferenceUpdate={handlePreferenceUpdate} onAddFavorite={handleAddFavorite}/>
         </Route>
         <Route exact path="/favorites">
         <Favorites user = {user} favorites ={favorites} onDelete={handleDelete}/>

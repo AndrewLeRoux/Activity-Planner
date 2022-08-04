@@ -31,6 +31,10 @@ class UsersController < ApplicationController
     @current_user.destroy
   end
 
+  def delete_preferences
+    @current_user.preferences.destroy_all
+  end
+
   private
   
     # Only allow a list of trusted parameters through.

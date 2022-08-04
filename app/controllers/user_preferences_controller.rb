@@ -15,13 +15,8 @@ class UserPreferencesController < ApplicationController
 
   # POST /user_preferences
   def create
-    @user_preference = UserPreference.new(user_preference_params)
-
-    if @user_preference.save
-      render json: @user_preference, status: :created, location: @user_preference
-    else
-      render json: @user_preference.errors, status: :unprocessable_entity
-    end
+    @user_preference = @current_user.user_preferences.create!(user_preference_params)
+    render json: @user_preference, status: :created, location: @user_preference
   end
 
   # PATCH/PUT /user_preferences/1
@@ -46,6 +41,6 @@ class UserPreferencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_preference_params
-      params.require(:user_preference).permit(:user_id, :preference_id)
+      params.require(:user_preference).permit(:preference_id)
     end
 end
