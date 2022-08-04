@@ -3,22 +3,14 @@ import Activity from "./Activity";
 
 function Profile({user, activities, favorites, onAddFavorite}){
 
-    const activityTypes = ['education','recreational','social','diy','charity','cooking','relaxation','music','busywork']
-    const favoriteIds = favorites.map(favorite => {return favorite.activity_id})
+    // const favoriteIds = favorites.map(favorite => {return favorite.activity_id})
     
-    const activityList = activityTypes.filter(activity => user[activity])
-
-    const filteredActivities = activities.filter(activity => {
-        for (const type of activityList){
-            if (type == activity.activity_type && !favoriteIds.includes(activity.id))
-                return true
-        }
-    })
+    // filter out activities you've liked from list
 
     function random_item(items){
     return items[Math.floor(Math.random()*items.length)];
     }
-    const recommended = filteredActivities.map((activity) =>{ return <Activity user = {user} key = {activity.name} activity = {activity} favorites ={favorites} onAddFavorite={onAddFavorite}/>})
+    const recommended = activities.map((activity) =>{ return <Activity user = {user} key = {activity.name} activity = {activity} favorites ={favorites} onAddFavorite={onAddFavorite}/>})
     const items = []
     
     for (let i = 0; i < 4; i++){
@@ -35,7 +27,7 @@ function Profile({user, activities, favorites, onAddFavorite}){
                 <p>User: {user.name}</p>
                 <p>Activity Preferences:</p>
                 <ul id = "activityPreferences">
-                    {activityList.map(activity => {return <li key = {activity}>{activity}</li>})}
+                    {user.preferences.map(activity => {return <li key = {activity.id}>{activity.name}</li>})}
                 </ul>
             </div>
             <h2>Recommended Activities</h2>

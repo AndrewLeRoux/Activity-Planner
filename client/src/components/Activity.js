@@ -8,7 +8,7 @@ function Activity({activity, user, onAddFavorite, favorites}){
             alert("already in favorites")
          }
         else {
-            fetch("http://localhost:9292/favorites", {
+            fetch("/favorites", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function Activity({activity, user, onAddFavorite, favorites}){
             }),
         })
         .then((r) => r.json())
-        .then((newFavorite) => onAddFavorite(newFavorite));
+        .then(() => onAddFavorite());
         }
         
     }

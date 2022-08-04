@@ -1,3 +1,4 @@
 class PreferenceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :belongs_to
+  attributes :id, :name
+  has_many :user_preferences
 end

@@ -55,15 +55,24 @@ function App() {
   }, [user])
 
 
-  function handleAddFavorite(newFavorite){
-    
-    const updatedFavorites = [...favorites, newFavorite]
-    setFavorites(updatedFavorites)
+  function handleAddFavorite(){
+    async function getFavorites() {
+      const r = await fetch("/favorites")
+      if (r.ok) {
+        r.json().then((favs) => setFavorites(favs))
+      }
+    }
+    getFavorites();
   }
 
-  function handleDelete(deletedFavorite){
-    const newFavorites = favorites.filter(favorite => !(favorite.activity_id === deletedFavorite.activity_id && favorite.user_id === deletedFavorite.user_id))
-    setFavorites(newFavorites)
+  function handleDelete(){
+    async function getFavorites() {
+      const r = await fetch("/favorites")
+      if (r.ok) {
+        r.json().then((favs) => setFavorites(favs))
+      }
+    }
+    getFavorites();
   }
   
   if (!user) return <Login onLogin={setUser}/>

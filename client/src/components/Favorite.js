@@ -3,11 +3,10 @@ import React from "react";
 function Favorite({favorite, onDelete}){
 
     function handleClick(){
-        fetch(`http://localhost:9292/favorites/${favorite.id}`, {
+        fetch(`/favorites/${favorite.id}`,{
             method: "DELETE",
         })
-        .then((r) => r.json())
-        .then((deletedFavorite) => onDelete(deletedFavorite));
+        .then(() => onDelete());
     }
 
 
