@@ -43,7 +43,7 @@ function NewUserForm({onLogin}){
 
     return(
         <Tile>
-        <h2 className = "titles">Create new User</h2>
+        <H2 className = "titles">Create new User</H2>
         <form onSubmit={handleSubmit}>
         <Input
             type="text"
@@ -105,11 +105,14 @@ const Input = styled.input`
 
 const Button = styled.button`
   cursor: pointer;
-  background-color: #61dafb;
+  background-color: blue;
   border-radius: 20px;
   padding: 8px 16px;
   margin: 2px;
 `;
 
+const H2 = styled.h2`
+color: blue;
+`
 
 export default NewUserForm

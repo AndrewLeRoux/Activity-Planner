@@ -30,9 +30,9 @@ function LoginForm ({onLogin}) {
 
     return (
       <Tile>
-        <h2>Login</h2>
+        <H2>Login</H2>
         <form onSubmit={handleSubmit}>
-                <input
+                <Input
                 type="text"
                 name = "username"
                 placeholder= "username..."
@@ -40,7 +40,7 @@ function LoginForm ({onLogin}) {
                 value={username}
             />
             <br/>
-            <input
+            <Input
                 type="password"
                 name = "password"
                 placeholder= "password..."
@@ -48,7 +48,7 @@ function LoginForm ({onLogin}) {
                 value={password}
             />
             <br/>
-            <button type="submit">Login</button>
+            <Button type="submit">Login</Button>
         </form>
             {errors.map(error => {return <Error key = {error}>{error}</Error>})}
         </Tile>
@@ -69,11 +69,14 @@ const Input = styled.input`
 
 const Button = styled.button`
   cursor: pointer;
-  background-color: #61dafb;
+  background-color: blue;
   border-radius: 20px;
   padding: 8px 16px;
   margin: 2px;
 `;
 
 
+const H2 = styled.h2`
+color: blue;
+`
 export default LoginForm;

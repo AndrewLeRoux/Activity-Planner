@@ -31,7 +31,7 @@ function Login({onLogin}){
 
 const Button = styled.button`
 cursor: pointer;
-background-color: #61dafb;
+background-color: blue;
 border-radius: 20px;
 padding: 8px 16px;
 margin: 2px;
