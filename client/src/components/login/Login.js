@@ -8,9 +8,18 @@ function Login({onLogin}){
     const [showLogin, setShowLogin] = useState(true);
 
     return(
-    <div className = "login">
+    <div className = "login" style={{ 
+        backgroundImage: `url("https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?cs=srgb&dl=pexels-pixabay-235922.jpg&fm=jpg")`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        height:'100%',
+        margin: 0,
+        padding: 0
+        
+        
+      }}>
         <h1 id = "loginTitle">Activity Planner</h1>
-        <img src ="https://www.hhmglobal.com/wp-content/uploads/news/29784/Exersize-696x393.jpg" alt="running" width="464" height="262"></img>
+        {/* <Image src ="https://www.hhmglobal.com/wp-content/uploads/news/29784/Exersize-696x393.jpg" alt="running" width="464" height="262"></Image> */}
         {showLogin? (
             <>
                 <LoginForm onLogin = {onLogin} />
@@ -37,6 +46,10 @@ padding: 8px 16px;
 margin: 2px;
   `;
 
+
+const Image = styled.img`
+border-radius: 20px;
+`
 
 
 export default Login
