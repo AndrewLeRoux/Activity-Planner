@@ -12,9 +12,10 @@ function Profile({user, activities, favorites, onAddFavorite, preferences, onPre
     // filter out activities you've liked from list
 
     const filteredActivities = activities.filter(activity => {
+
         for (const preference of user.preferences){
-            if (preference.name == activity.activity_type && !favoriteIds.includes(activity.id))
-                return true
+            if (preference.name === activity.activity_type && !favoriteIds.includes(activity.id))
+                return true;
         }
     })
 
@@ -61,7 +62,6 @@ function Profile({user, activities, favorites, onAddFavorite, preferences, onPre
 
 const Button = styled.button`
   cursor: pointer;
-  font-size: 12px;
   background-color: blue;
   border-radius: 20px;
   padding: 8px 16px;

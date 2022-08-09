@@ -22,7 +22,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postEducation() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postRecreational() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postSocial() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postDiy() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postCharity() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postCooking() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -88,7 +88,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postRelaxation() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -99,7 +99,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postMusic() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -110,7 +110,7 @@ function Preferences({preferences, user, onPreferenceUpdate}){
             })
         }
         async function postBusywork() {
-                    const r = await fetch("/user_preferences",{
+                    await fetch("/user_preferences",{
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",

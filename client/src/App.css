@@ -46,6 +46,7 @@
   display: flex;
   width: 50%;
   margin: 0 auto;
+  border-radius: 10px;
 }
 
 .cardImg{
@@ -63,6 +64,7 @@
   width: 50%;
   margin: 0 auto;
   text-align: left;
+  border-radius: 10px;
 }
 #myProfile{
   text-align: left;
@@ -143,6 +145,7 @@ h2{
   text-align: center;
   padding: 50px 200px;
   font-size: 20px;
+  margin: auto;
 }
 
 
@@ -156,6 +159,7 @@ h2{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 .activities{
@@ -163,6 +167,7 @@ h2{
   font-size: 20px;
   text-align: center;
   padding: 10px 20px;
+  
 }
 
 .activityButton{
@@ -175,6 +180,7 @@ h2{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 25% 10%;
 }
 
 .activityName{

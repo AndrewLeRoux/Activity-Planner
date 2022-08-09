@@ -8,6 +8,8 @@ const linkStyles = {
     background: "blue",
     textDecoration: "none",
     color: "white",
+    "borderRadius": "20px",
+    "textAlign": "center",
 };
 
 
